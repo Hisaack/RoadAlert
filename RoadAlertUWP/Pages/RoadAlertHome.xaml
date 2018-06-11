@@ -5,6 +5,7 @@
     xmlns:local="using:RoadAlertUWP.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:menuData="using:RoadAlertUWP.Models"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -16,6 +17,15 @@
             <Button Background="Transparent"
                     Content="&#xE700;"
                     Name="HamburgerBtn"
+                    Click="HamburgerBtn_OnClick"
+                    Height="45"
+                    Width="45"
+                    FontSize="20"
+                    FontFamily="Segoe MDL2 Assets"/>
+            <Button Background="Transparent"
+                    Content="&#xE112;"
+                    Name="BackButton"
+                    Margin="10,0,0,0"
                     Click="HamburgerBtn_OnClick"
                     Height="45"
                     Width="45"
@@ -38,7 +48,13 @@
                 <ListView Name="HomeMenuListView"
                           IsItemClickEnabled="True"
                           ItemClick="HomeMenuListView_OnItemClick"
-                          ></ListView>
+                          ItemsSource="{x:Bind homeMenuItems}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </SplitView.Pane>
         </SplitView>
     </Grid>

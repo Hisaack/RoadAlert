@@ -11,9 +11,4 @@ namespace RoadAlertUWP.Models
         public string ItemName { get; set; }
         public string ItemLocation { get; set; }
     }
-
-    public class ManageMenuItem
-    {
-        
-    }
 }
