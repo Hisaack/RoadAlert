@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="4ed63dc6-0791-4338-9d8b-73ff09cc6be1"
+    Name="cdf4fa16-7466-4e83-ae62-996095a2a517"
     Publisher="CN=Josh"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="4ed63dc6-0791-4338-9d8b-73ff09cc6be1" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="cdf4fa16-7466-4e83-ae62-996095a2a517" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>RoadAlert</DisplayName>
+    <DisplayName>RoadAlertUWP</DisplayName>
     <PublisherDisplayName>Josh</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="RoadAlert.App">
+      EntryPoint="RoadAlertUWP.App">
       <uap:VisualElements
-        DisplayName="RoadAlert"
+        DisplayName="RoadAlertUWP"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="RoadAlert"
+        Description="RoadAlertUWP"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadAlert", "RoadAlert\RoadAlert.csproj", "{CEDD2706-127A-4301-89ED-22896E6BB191}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RoadAlertShared", "RoadAlertShared\RoadAlertShared.shproj", "{C39E6A65-24FB-4865-8B87-CD7AF6F3EE17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadAlertUWP", "RoadAlertUWP\RoadAlertUWP.csproj", "{08B73752-281F-4B63-BAF2-D8EC41AE24C8}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		RoadAlertShared\RoadAlertShared.projitems*{c39e6a65-24fb-4865-8b87-cd7af6f3ee17}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
 		Debug|x64 = Debug|x64
@@ -15,24 +20,24 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Debug|ARM.ActiveCfg = Debug|ARM
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Debug|ARM.Build.0 = Debug|ARM
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Debug|ARM.Deploy.0 = Debug|ARM
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Debug|x64.ActiveCfg = Debug|x64
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Debug|x64.Build.0 = Debug|x64
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Debug|x64.Deploy.0 = Debug|x64
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Debug|x86.ActiveCfg = Debug|x86
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Debug|x86.Build.0 = Debug|x86
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Debug|x86.Deploy.0 = Debug|x86
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Release|ARM.ActiveCfg = Release|ARM
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Release|ARM.Build.0 = Release|ARM
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Release|ARM.Deploy.0 = Release|ARM
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Release|x64.ActiveCfg = Release|x64
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Release|x64.Build.0 = Release|x64
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Release|x64.Deploy.0 = Release|x64
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Release|x86.ActiveCfg = Release|x86
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Release|x86.Build.0 = Release|x86
-		{CEDD2706-127A-4301-89ED-22896E6BB191}.Release|x86.Deploy.0 = Release|x86
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Debug|ARM.ActiveCfg = Debug|ARM
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Debug|ARM.Build.0 = Debug|ARM
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Debug|ARM.Deploy.0 = Debug|ARM
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Debug|x64.ActiveCfg = Debug|x64
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Debug|x64.Build.0 = Debug|x64
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Debug|x64.Deploy.0 = Debug|x64
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Debug|x86.ActiveCfg = Debug|x86
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Debug|x86.Build.0 = Debug|x86
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Debug|x86.Deploy.0 = Debug|x86
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Release|ARM.ActiveCfg = Release|ARM
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Release|ARM.Build.0 = Release|ARM
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Release|ARM.Deploy.0 = Release|ARM
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Release|x64.ActiveCfg = Release|x64
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Release|x64.Build.0 = Release|x64
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Release|x64.Deploy.0 = Release|x64
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Release|x86.ActiveCfg = Release|x86
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Release|x86.Build.0 = Release|x86
+		{08B73752-281F-4B63-BAF2-D8EC41AE24C8}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
