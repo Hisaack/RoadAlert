@@ -9,5 +9,6 @@
     <Import_RootNamespace>RoadAlertShared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Fatalities.cs" />
   </ItemGroup>
 </Project>
