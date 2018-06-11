@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MachineLearning.Model;
 using Microsoft.ML;
 using Microsoft.ML.Data;
+using Microsoft.ML.Models;
 using Microsoft.ML.Trainers;
 using Microsoft.ML.Transforms;
 
@@ -22,18 +23,28 @@ namespace MachineLearning
 
         public static async Task<PredictionModel<Fatalities, FatalitiesPrediction>> TrainModel()
         {
-            var  pipeline=new LearningPipeline();
-            pipeline.Add(new TextLoader(Datapath).CreateFrom<Fatalities>(separator:','));
-            pipeline.Add(new ColumnCopier("InjurySeverity", "Label"));
-            pipeline.Add(new CategoricalOneHotVectorizer("Speed","Airbag", "SeatBelt", "Sex"));
-            pipeline.Add(new ColumnConcatenator("Features", "Speed", "Airbag", "SeatBelt", "Frontal", "Sex", "Age", "Year", "Deploy"));
-            pipeline.Add(new FastTreeRegressor());
+            var pipeline = new LearningPipeline
+            {
+                new TextLoader(Datapath).CreateFrom<Fatalities>(separator: ','),
+                new ColumnCopier("InjurySeverity", "Label"),
+                new CategoricalOneHotVectorizer("Speed", "Airbag", "SeatBelt", "Sex"),
+                new ColumnConcatenator("Features", "Speed", "Airbag", "SeatBelt", "Frontal", "Sex", "Age", "Year",
+                    "Deploy"),
+                new FastTreeRegressor()
+            };
             PredictionModel<Fatalities, FatalitiesPrediction>
                 model = pipeline.Train<Fatalities, FatalitiesPrediction>();
             await model.WriteAsync(ModelPath);
             return model;
         }
-        
+
+        public static RegressionMetrics EvaluateModel(PredictionModel<Fatalities, FatalitiesPrediction> model)
+        {
+            var testData=new TextLoader(TestDataPath).CreateFrom<Fatalities>(useHeader:true, separator:',');
+            var evaluator = new RegressionEvaluator();
+            RegressionMetrics metrics = evaluator.Evaluate(model, testData);
+            return metrics;
+        }
 
 
     }
