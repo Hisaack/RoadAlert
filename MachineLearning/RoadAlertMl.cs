@@ -9,6 +9,15 @@ namespace MachineLearning
 {
     public class RoadAlertMl
     {
-        private LearningPipeline pipeline = new LearningPipeline();
+        //path to dataset to train the model
+        private const string Datapath = @".\Data\RoadAlertTrainDataSet.csv";
+        //path to dataset to evaluate the model
+        private const string TestDataPath= @".\Data\RoadAlertTestDataSet.csv";
+        //path to storage of the trained model
+        private const string ModelPath = @".\Data\Model.zip";
+
+
+
+
     }
 }

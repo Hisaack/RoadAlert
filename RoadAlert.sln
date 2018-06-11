@@ -3,16 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RoadAlertShared", "RoadAlertShared\RoadAlertShared.shproj", "{C39E6A65-24FB-4865-8B87-CD7AF6F3EE17}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadAlertUWP", "RoadAlertUWP\RoadAlertUWP.csproj", "{08B73752-281F-4B63-BAF2-D8EC41AE24C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineLearning", "MachineLearning\MachineLearning.csproj", "{EB1CBAB9-F569-4AEB-9E3D-34FA3C9D57D5}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		RoadAlertShared\RoadAlertShared.projitems*{c39e6a65-24fb-4865-8b87-cd7af6f3ee17}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
