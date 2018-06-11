@@ -36,11 +36,11 @@ namespace RoadAlertUWP.Pages
         {
             homeMenuItems = new List<HomeMenuItem>()
             {
-                new HomeMenuItem(){ItemLocation = "Assets/home", ItemName = "Home"},
-                new HomeMenuItem(){ItemLocation = "Assets/road.png", ItemName = "Roads"},
-                new HomeMenuItem(){ItemLocation = "Assets/accident.png", ItemName = "Accident"},
-                new HomeMenuItem(){ItemLocation = "Assets/fatalities", ItemName = "Fatalities Calculation"},
-                new HomeMenuItem(){ItemLocation = "Assets/corrupt", ItemName = "Bribery Report"}
+                new HomeMenuItem(){ItemLocation = "ms-appx:///Assets/home.png", ItemName = "Home"},
+                new HomeMenuItem(){ItemLocation = "ms-appx:///Assets/road.png", ItemName = "Roads"},
+                new HomeMenuItem(){ItemLocation = "ms-appx:///Assets/accident.png", ItemName = "Accident"},
+                new HomeMenuItem(){ItemLocation = "ms-appx:///Assets/fatalities.png", ItemName = "Fatalities Calculation"},
+                new HomeMenuItem(){ItemLocation = "ms-appx:///Assets/corrupt.png", ItemName = "Bribery Report"}
             };
         }
 
@@ -56,7 +56,25 @@ namespace RoadAlertUWP.Pages
 
         private void HomeMenuListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            throw new NotImplementedException();
+            var item = (HomeMenuItem) e.ClickedItem;
+            switch (item.ItemName)
+            {
+                case "Home":
+                    RoadAlertFrame.Navigate(typeof(RoadAlertHome));
+                    break;
+                case "Roads":
+                    RoadAlertFrame.Navigate(typeof(Roads));
+                    break;
+                case "Accident":
+                    RoadAlertFrame.Navigate(typeof(Accidents));
+                    break;
+                case "Fatalities Calculation":
+                    RoadAlertFrame.Navigate(typeof(Roads));
+                    break;
+                case "Bribery Report":
+                    RoadAlertFrame.Navigate(typeof(BriberyReport));
+                    break;
+            }
         }
     }
 }

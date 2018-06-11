@@ -96,8 +96,20 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeMenuItem.cs" />
+    <Compile Include="Pages\Accidents.xaml.cs">
+      <DependentUpon>Accidents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BriberyReport.xaml.cs">
+      <DependentUpon>BriberyReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FatalitiesCalculation.xaml.cs">
+      <DependentUpon>FatalitiesCalculation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RoadAlertHome.xaml.cs">
       <DependentUpon>RoadAlertHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Roads.xaml.cs">
+      <DependentUpon>Roads.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -172,7 +184,23 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Pages\Accidents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\BriberyReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FatalitiesCalculation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\RoadAlertHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Roads.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

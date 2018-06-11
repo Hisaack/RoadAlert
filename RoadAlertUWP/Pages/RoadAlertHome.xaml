@@ -12,7 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions> 
         <RelativePanel>
             <Button Background="Transparent"
                     Content="&#xE700;"
@@ -22,8 +22,7 @@
                     Width="45"
                     FontSize="20"
                     FontFamily="Segoe MDL2 Assets"/>
-            <Button Background="Transparent"
-                    Content="&#xE112;"
+            <Button Content="&#xE112;"
                     Name="BackButton"
                     Margin="10,0,0,0"
                     Click="HamburgerBtn_OnClick"
@@ -32,10 +31,11 @@
                     FontSize="20"
                     FontFamily="Segoe MDL2 Assets"/>
             <SearchBox RelativePanel.AlignRightWithPanel="True"
+                       Width="300"
                        PlaceholderText="Search Road"
                        FocusOnKeyboardInput="True"
                        Name="SearchRoadBox"
-                       Margin="0,0,0,10"
+                       Margin="0,0,0,0"
                        QuerySubmitted="SearchRoadBox_OnQuerySubmitted"/>
         </RelativePanel>
         <SplitView Grid.Row="1"
@@ -43,19 +43,34 @@
                    DisplayMode="CompactOverlay"
                    CompactPaneLength="56"
                    HorizontalAlignment="Left"
-                   OpenPaneLength="200">
+                   OpenPaneLength="245">
             <SplitView.Pane>
                 <ListView Name="HomeMenuListView"
                           IsItemClickEnabled="True"
                           ItemClick="HomeMenuListView_OnItemClick"
                           ItemsSource="{x:Bind homeMenuItems}">
                     <ListView.ItemTemplate>
-                        <DataTemplate>
-
+                        <DataTemplate x:DataType="menuData:HomeMenuItem">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{x:Bind ItemLocation}"
+                                       Height="45"
+                                       Margin="-5,5,0,10"
+                                       VerticalAlignment="Center"
+                                       Width="45"/>
+                                <TextBlock Text="{x:Bind ItemName}"
+                                           FontSize="18"
+                                           Margin="10,0,0,0"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </SplitView.Pane>
+            <SplitView.Content>
+                <Frame Name="RoadAlertFrame">
+
+                </Frame>
+            </SplitView.Content>
         </SplitView>
     </Grid>
 </Page>
