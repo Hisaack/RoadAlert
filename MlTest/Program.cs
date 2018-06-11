@@ -11,6 +11,11 @@ namespace MlTest
     {
         public static async Task Main(string[] args)
         {
+             await Train();
+        }
+
+        private static async Task Train()
+        {
             var roadMl = new RoadAlertMl();
             var model = await roadMl.TrainModel();
             var metrics = roadMl.EvaluateModel(model);
