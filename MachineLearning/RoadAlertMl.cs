@@ -21,7 +21,7 @@ namespace MachineLearning
         //path to storage of the trained model
         private const string ModelPath = @".\Data\Model.zip";
 
-        public static async Task<PredictionModel<Fatalities, FatalitiesPrediction>> TrainModel()
+        public  async Task<PredictionModel<Fatalities, FatalitiesPrediction>> TrainModel()
         {
             var pipeline = new LearningPipeline
             {
@@ -38,7 +38,7 @@ namespace MachineLearning
             return model;
         }
 
-        public static RegressionMetrics EvaluateModel(PredictionModel<Fatalities, FatalitiesPrediction> model)
+        public  RegressionMetrics EvaluateModel(PredictionModel<Fatalities, FatalitiesPrediction> model)
         {
             var testData=new TextLoader(TestDataPath).CreateFrom<Fatalities>(useHeader:true, separator:',');
             var evaluator = new RegressionEvaluator();

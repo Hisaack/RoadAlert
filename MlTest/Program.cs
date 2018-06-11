@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MachineLearning;
 
 namespace MlTest
 {
     class Program
     {
-        static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
+            var roadMl = new RoadAlertMl();
+            var model = await roadMl.TrainModel();
+            var metrics = roadMl.EvaluateModel(model);
+            Console.WriteLine("Rms=" + metrics.Rms);
+            Console.ReadKey();
         }
     }
 }
