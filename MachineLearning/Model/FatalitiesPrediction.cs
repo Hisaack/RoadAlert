@@ -7,7 +7,7 @@ using Microsoft.ML.Runtime.Api;
 
 namespace MachineLearning.Model
 {
-    class FatalitiesPredictioncs
+    public class FatalitiesPrediction
     {
         [ColumnName("Score")]
         public int InjurySeverity;

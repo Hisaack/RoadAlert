@@ -28,7 +28,7 @@ namespace MachineLearning.Model
         public int Age;
 
         [Column("6")]
-        public string Year;
+        public int Year;
 
         [Column("7")]
         public int Deploy;
