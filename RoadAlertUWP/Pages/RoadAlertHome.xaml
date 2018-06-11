@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="RoadAlertUWP.Pages.RoadAlertHome"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RoadAlertUWP.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <RelativePanel>
+            <Button Background="Transparent"
+                    Content="&#xE700;"
+                    Name="HamburgerBtn"
+                    Click="HamburgerBtn_OnClick"
+                    Height="45"
+                    Width="45"
+                    FontSize="20"
+                    FontFamily="Segoe MDL2 Assets"/>
+            <SearchBox RelativePanel.AlignRightWithPanel="True"
+                       PlaceholderText="Search Road"
+                       FocusOnKeyboardInput="True"
+                       Name="SearchRoadBox"
+                       Margin="0,0,0,10"
+                       QuerySubmitted="SearchRoadBox_OnQuerySubmitted"/>
+        </RelativePanel>
+        <SplitView Grid.Row="1"
+                   Name="RoadAlertSplitView"
+                   DisplayMode="CompactOverlay"
+                   CompactPaneLength="56"
+                   HorizontalAlignment="Left"
+                   OpenPaneLength="200">
+            <SplitView.Pane>
+                <ListView Name="HomeMenuListView"
+                          IsItemClickEnabled="True"
+                          ItemClick="HomeMenuListView_OnItemClick"
+                          ></ListView>
+            </SplitView.Pane>
+        </SplitView>
+    </Grid>
+</Page>
