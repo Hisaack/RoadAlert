@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.ML.Runtime.Api;
+﻿using Microsoft.ML.Runtime.Api;
 
-namespace MachineLearning.Model
+namespace MachineLearningRoadAlert.Models
 {
     public class Fatalities
     {

@@ -95,9 +95,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MachineLearning\Pipeline\RoadAlertMl.cs" />
-    <Compile Include="MachineLearning\Models\Fatalities.cs" />
-    <Compile Include="MachineLearning\Models\FatalitiesPrediction.cs" />
     <Compile Include="Models\HomeMenuItem.cs" />
     <Compile Include="Pages\Accidents.xaml.cs">
       <DependentUpon>Accidents.xaml</DependentUpon>
@@ -123,12 +120,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="MachineLearning\Data\RoadAlertTestDataSet.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="MachineLearning\Data\RoadAlertTrainDataSet.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="RoadAlertUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -229,7 +220,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

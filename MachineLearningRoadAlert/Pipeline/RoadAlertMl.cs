@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MachineLearning.Model;
+﻿using System.Threading.Tasks;
+using MachineLearningRoadAlert.Models;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Models;
 using Microsoft.ML.Trainers;
 using Microsoft.ML.Transforms;
 
-namespace MachineLearning
+namespace MachineLearningRoadAlert.Pipeline
 {
     public class RoadAlertMl
     {
