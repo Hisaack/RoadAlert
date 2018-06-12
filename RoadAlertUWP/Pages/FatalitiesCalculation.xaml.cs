@@ -26,5 +26,16 @@ namespace RoadAlertUWP.Pages
         {
             this.InitializeComponent();
         }
+
+        private void Speed_Click(object sender, RoutedEventArgs e)
+        {
+            var item = (MenuFlyoutItem) sender;
+            SpeedValueTextBox.Text = item.Text;
+        }
+
+        private void CalculateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ResultsStackPanel.Visibility = Visibility.Visible;
+        }
     }
 }
