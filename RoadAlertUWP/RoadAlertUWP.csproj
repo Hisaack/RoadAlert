@@ -229,6 +229,12 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RoadAlertMachineLearning\RoadAlertMachineLearning.csproj">
+      <Project>{72758b68-e40f-4381-ba04-3ea150fc05df}</Project>
+      <Name>RoadAlertMachineLearning</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
