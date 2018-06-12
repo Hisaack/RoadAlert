@@ -21,15 +21,14 @@
                     Height="45"
                     Width="45"
                     FontSize="20"
+                    VerticalAlignment="Center"
                     FontFamily="Segoe MDL2 Assets"/>
-            <Button Content="&#xE112;"
-                    Name="BackButton"
-                    Margin="10,0,0,0"
-                    Click="HamburgerBtn_OnClick"
-                    Height="45"
-                    Width="45"
-                    FontSize="20"
-                    FontFamily="Segoe MDL2 Assets"/>
+            <TextBlock Name="TitleTxtBlock"
+                       FontSize="24"
+                       VerticalAlignment="Center"
+                       FontWeight="SemiBold"
+                       RelativePanel.RightOf="HamburgerBtn"
+                       Margin="20,10,0,0"/>
             <SearchBox RelativePanel.AlignRightWithPanel="True"
                        Width="300"
                        PlaceholderText="Search Road"
@@ -39,6 +38,7 @@
                        QuerySubmitted="SearchRoadBox_OnQuerySubmitted"/>
         </RelativePanel>
         <SplitView Grid.Row="1"
+                   Background="Transparent"
                    Name="RoadAlertSplitView"
                    DisplayMode="CompactOverlay"
                    CompactPaneLength="56"

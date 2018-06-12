@@ -29,7 +29,7 @@ namespace RoadAlertUWP.Pages
             this.InitializeComponent();
             homeMenuItems=new List<HomeMenuItem>();
             InitMenuItems();
-            BackButton.Visibility = Visibility.Collapsed;
+            TitleTxtBlock.Text = "Home";
         }
 
         private void InitMenuItems()
@@ -60,19 +60,24 @@ namespace RoadAlertUWP.Pages
             switch (item.ItemName)
             {
                 case "Home":
-                    RoadAlertFrame.Navigate(typeof(RoadAlertHome));
+                    RoadAlertFrame.Navigate(typeof(Home));
+                    TitleTxtBlock.Text = "Home";
                     break;
                 case "Roads":
                     RoadAlertFrame.Navigate(typeof(Roads));
+                    TitleTxtBlock.Text = "Roads";
                     break;
                 case "Accident":
                     RoadAlertFrame.Navigate(typeof(Accidents));
+                    TitleTxtBlock.Text = "Accident";
                     break;
                 case "Fatalities Calculation":
                     RoadAlertFrame.Navigate(typeof(Roads));
+                    TitleTxtBlock.Text = "Fatalities Calculation";
                     break;
                 case "Bribery Report":
                     RoadAlertFrame.Navigate(typeof(BriberyReport));
+                    TitleTxtBlock.Text = "Bribery Report";
                     break;
             }
         }

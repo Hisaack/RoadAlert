@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="RoadAlertUWP.Pages.FatalitiesCalculation"
+    x:Class="RoadAlertUWP.Pages.Home"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:RoadAlertUWP.Pages"
@@ -8,11 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock/>
-        <TextBlock/>
-        <TextBlock/>
-        <TextBlock/>
-        <TextBlock/>
-        <TextBlock/>
+
     </Grid>
 </Page>

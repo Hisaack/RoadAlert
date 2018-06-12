@@ -9,9 +9,9 @@ namespace MlTest
 {
     class Program
     {
-        public static async Task Main(string[] args)
+        public static async void Main(string[] args)
         {
-             await Train();
+              await Train();
         }
 
         private static async Task Train()
