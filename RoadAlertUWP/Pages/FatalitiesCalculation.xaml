@@ -5,14 +5,58 @@
     xmlns:local="using:RoadAlertUWP.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock/>
-        <TextBlock/>
-        <TextBlock/>
-        <TextBlock/>
-        <TextBlock/>
-        <TextBlock/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Style="{StaticResource FcTextBlockStyle}"
+                   Text="Speed"/>
+        <TextBox   Grid.Column="1"
+                   Grid.Row="0"
+                   Margin="10"/>
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   Style="{StaticResource FcTextBlockStyle}"
+                   Text="Vehicle with Airbag"/>
+        
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Style="{StaticResource FcTextBlockStyle}"
+                   Text="Using Seat Bealt"/>
+        <TextBlock Grid.Row="3"
+                   Grid.Column="0"
+                   Style="{StaticResource FcTextBlockStyle}"
+                   Text="Hit From the front"/>
+        <TextBlock Grid.Row="4"
+                   Grid.Column="0"
+                   Style="{StaticResource FcTextBlockStyle}"
+                   Text="Gender of Occupant"/>
+        <TextBlock Grid.Row="5"
+                   Grid.Column="0"
+                   Style="{StaticResource FcTextBlockStyle}"
+                   Text="Age of occupant"/>
+        <TextBlock Grid.Row="6"
+                   Grid.Column="0"
+                   Style="{StaticResource FcTextBlockStyle}"
+                   Text="Year the vehicle was manufactured"/>
+        <TextBlock Grid.Row="7"
+                   Grid.Column="0"
+                   Style="{StaticResource FcTextBlockStyle}"
+                   Text="Did the airbag deploy?"/>
     </Grid>
 </Page>

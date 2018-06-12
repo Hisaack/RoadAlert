@@ -72,7 +72,7 @@ namespace RoadAlertUWP.Pages
                     TitleTxtBlock.Text = "Accident";
                     break;
                 case "Fatalities Calculation":
-                    RoadAlertFrame.Navigate(typeof(Roads));
+                    RoadAlertFrame.Navigate(typeof(FatalitiesCalculation));
                     TitleTxtBlock.Text = "Fatalities Calculation";
                     break;
                 case "Bribery Report":
