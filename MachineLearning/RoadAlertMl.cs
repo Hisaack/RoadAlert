@@ -23,7 +23,7 @@ namespace MachineLearning
 
         public  async Task<PredictionModel<Fatalities, FatalitiesPrediction>> TrainModel()
         {
-            var pipeline = new LearningPipeline
+            var pipeline = new LearningPipeline 
             {
                 new TextLoader(Datapath).CreateFrom<Fatalities>(separator: ','),
                 new ColumnCopier("InjurySeverity", "Label"),
