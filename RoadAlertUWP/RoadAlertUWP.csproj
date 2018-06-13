@@ -122,7 +122,9 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="TrainedModel\Model.zip" />
+    <None Include="TrainedModel\Model.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="RoadAlertUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
