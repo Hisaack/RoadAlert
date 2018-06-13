@@ -6,11 +6,11 @@ using Microsoft.ML.Models;
 using Microsoft.ML.Trainers;
 using Microsoft.ML.Transforms;
 
-namespace MachineLearningRoadAlert.Pipeline
+namespace RoadAlertMachineLearning.Pipeline
 {
     public class RoadAlertMl
     {
-        //path to dataset to train the model
+        //path to dataset to train the model 
         private const string Datapath = @".\Data\RoadAlertTrainDataSet.csv";
         //path to dataset to evaluate the model
         private const string TestDataPath= @".\Data\RoadAlertTestDataSet.csv";
@@ -22,14 +22,13 @@ namespace MachineLearningRoadAlert.Pipeline
             var pipeline = new LearningPipeline 
             {
                 new TextLoader(Datapath).CreateFrom<Fatalities>(separator: ','),
-                new ColumnCopier("InjurySeverity", "Label"),
+                new ColumnCopier(("InjurySeverity", "Label")),
                 new CategoricalOneHotVectorizer("Speed", "Airbag", "SeatBelt", "Sex"),
                 new ColumnConcatenator("Features", "Speed", "Airbag", "SeatBelt", "Frontal", "Sex", "Age", "Year",
                     "Deploy"),
                 new FastTreeRegressor()
             };
-            PredictionModel<Fatalities, FatalitiesPrediction>
-                model = pipeline.Train<Fatalities, FatalitiesPrediction>();
+            var model =  pipeline.Train<Fatalities, FatalitiesPrediction>();
             await model.WriteAsync(ModelPath);
             return model;
         }

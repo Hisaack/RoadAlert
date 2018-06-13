@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using RoadAlertMachineLearning.Pipeline;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,9 +34,14 @@ namespace RoadAlertUWP.Pages
             SpeedValueTextBox.Text = item.Text;
         }
 
-        private void CalculateBtn_Click(object sender, RoutedEventArgs e)
+        private async void CalculateBtn_Click(object sender, RoutedEventArgs e)
         {
             ResultsStackPanel.Visibility = Visibility.Visible;
+            var roadAlertMl = new RoadAlertMl();
+            var model = await roadAlertMl.TrainModel();
+            var merit = roadAlertMl.EvaluateModel(model);
+           DummyTxt.Text = $"RMS is {merit.Rms} RSquared is {merit.RSquared}";
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.ML.Runtime.Api;
+using Microsoft.ML.Runtime.Data;
 
 namespace MachineLearningRoadAlert.Models
 {
@@ -14,19 +15,21 @@ namespace MachineLearningRoadAlert.Models
         public string SeatBelt;
 
         [Column("3")]
-        public int Frontal;
+        public float Frontal;
 
         [Column("4")]
-        public char Sex;
+        public string Sex;
 
         [Column("5")]
-        public int Age;
+        public float Age;
 
         [Column("6")]
-        public int Year;
+        public float Year;
 
         [Column("7")]
-        public int Deploy;
-        
+        public float Deploy;
+
+        [Column("8")]
+        public float InjurySeverity;
     }
 }
