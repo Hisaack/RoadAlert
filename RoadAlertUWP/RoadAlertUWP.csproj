@@ -95,6 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MLStudioPrediction\Model\AzureMlFatality.cs" />
+    <Compile Include="MLStudioPrediction\Prediction\AzureMlPrediction.cs" />
     <Compile Include="Models\Fatalities.cs" />
     <Compile Include="Models\FatalitiesPrediction.cs" />
     <Compile Include="Models\HomeMenuItem.cs" />
@@ -122,6 +124,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="MLStudioPrediction\Data\RoadAlertDataSet.csv" />
     <None Include="TrainedModel\Model.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -196,6 +199,9 @@
     <PackageReference Include="runtime.win10-x64.Microsoft.Net.Native.SharedLibrary">
       <Version>2.1.8</Version>
     </PackageReference>
+    <PackageReference Include="System.Net.Http.Formatting.Extension">
+      <Version>5.2.3</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Pages\Accidents.xaml">
@@ -234,6 +240,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
