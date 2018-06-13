@@ -11,11 +11,11 @@ namespace RoadAlertMachineLearning.Pipeline
     public class RoadAlertMl
     {
         //path to dataset to train the model 
-        private const string Datapath = @".\Data\RoadAlertTrainDataSet.csv";
+        private const string Datapath = "RoadAlertMachineLearning/Data/RoadAlertTrainDataSet.txt";
         //path to dataset to evaluate the model
-        private const string TestDataPath= @".\Data\RoadAlertTestDataSet.csv";
+        private const string TestDataPath= "RoadAlertMachineLearning/Data/RoadAlertTestDataSet.txt";
         //path to storage of the trained model
-        private const string ModelPath = @".\Data\Model.zip";
+        private const string ModelPath = "RoadAlertMachineLearning/Data/Model.zip";
 
         public  async Task<PredictionModel<Fatalities, FatalitiesPrediction>> TrainModel()
         {

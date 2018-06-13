@@ -5,6 +5,6 @@ namespace MachineLearningRoadAlert.Models
     public class FatalitiesPrediction
     {
         [ColumnName("Score")]
-        public int InjurySeverity;
+        public float InjurySeverity;
     }
 }
