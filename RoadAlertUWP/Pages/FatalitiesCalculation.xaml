@@ -5,165 +5,181 @@
     xmlns:local="using:RoadAlertUWP.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    
+    xmlns:gridData="using:RoadAlertUWP.Models"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Style="{StaticResource FcTextBlockStyle}"
+    <ScrollViewer>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Style="{StaticResource FcTextBlockStyle}"
                    Text="Speed"/>
-        <StackPanel   Grid.Column="1"
+            <StackPanel   Grid.Column="1"
                       Grid.Row="0"
                       Orientation="Horizontal">
-            <Button Margin="10"
+                <Button Margin="10"
                     VerticalAlignment="Center"
                     Content="Select speed"
                     Name="SpeedBtn">
-                <Button.Flyout>
-                    <MenuFlyout Placement="Top">
-                        <MenuFlyoutItem Text="1-9" Name="Speed1" Click="Speed_Click"/>
-                        <MenuFlyoutItem Text="10-19" Name="Speed2" Click="Speed_Click"/>
-                        <MenuFlyoutItem Text="20-29" Name="Speed3" Click="Speed_Click"/>
-                        <MenuFlyoutItem Text="30-39" Name="Speed4" Click="Speed_Click"/>
-                        <MenuFlyoutItem Text="40-49" Name="Speed5" Click="Speed_Click"/>
-                        <MenuFlyoutItem Text="50-55" Name="Speed6" Click="Speed_Click"/>
-                        <MenuFlyoutItem Text="55+" Name="Speed7" Click="Speed_Click"/>
-                    </MenuFlyout>
-                </Button.Flyout>
-            </Button>
-            <TextBlock Name="SpeedValueTextBox"
+                    <Button.Flyout>
+                        <MenuFlyout Placement="Top">
+                            <MenuFlyoutItem Text="1-9" Name="Speed1" Click="Speed_Click"/>
+                            <MenuFlyoutItem Text="10-19" Name="Speed2" Click="Speed_Click"/>
+                            <MenuFlyoutItem Text="20-29" Name="Speed3" Click="Speed_Click"/>
+                            <MenuFlyoutItem Text="30-39" Name="Speed4" Click="Speed_Click"/>
+                            <MenuFlyoutItem Text="40-49" Name="Speed5" Click="Speed_Click"/>
+                            <MenuFlyoutItem Text="50-55" Name="Speed6" Click="Speed_Click"/>
+                            <MenuFlyoutItem Text="55+" Name="Speed7" Click="Speed_Click"/>
+                        </MenuFlyout>
+                    </Button.Flyout>
+                </Button>
+                <TextBlock Name="SpeedValueTextBox"
                        Margin="10"
                        VerticalAlignment="Center"/>
-        </StackPanel>
-        <TextBlock Grid.Row="1"
+            </StackPanel>
+            <TextBlock Grid.Row="1"
                    Grid.Column="0"
                    Style="{StaticResource FcTextBlockStyle}"
                    Text="Vehicle with Airbag"/>
-        <ToggleSwitch Name="AirbagToggleSwitch"
+            <ToggleSwitch Name="AirbagToggleSwitch"
                      Grid.Row="1"
                      Grid.Column="1">
-            <ToggleSwitch.OnContent>
-                <TextBlock Text="Yes"/>
-            </ToggleSwitch.OnContent>
-            <ToggleSwitch.OffContent>
-                <TextBlock Text="No"/>
-            </ToggleSwitch.OffContent>
-        </ToggleSwitch>
-        <TextBlock Grid.Row="2"
+                <ToggleSwitch.OnContent>
+                    <TextBlock Text="Yes"/>
+                </ToggleSwitch.OnContent>
+                <ToggleSwitch.OffContent>
+                    <TextBlock Text="No"/>
+                </ToggleSwitch.OffContent>
+            </ToggleSwitch>
+            <TextBlock Grid.Row="2"
                    Grid.Column="0"
                    Style="{StaticResource FcTextBlockStyle}"
                    Text="Using Seat Belt"/>
-        <ToggleSwitch Name="SeatBeltToggleSwitch"
+            <ToggleSwitch Name="SeatBeltToggleSwitch"
                      Grid.Row="2"
                      Grid.Column="1">
-            <ToggleSwitch.OnContent>
-                <TextBlock Text="Yes"/>
-            </ToggleSwitch.OnContent>
-            <ToggleSwitch.OffContent>
-                <TextBlock Text="No"/>
-            </ToggleSwitch.OffContent>
-        </ToggleSwitch>
-        <TextBlock Grid.Row="3"
+                <ToggleSwitch.OnContent>
+                    <TextBlock Text="Yes"/>
+                </ToggleSwitch.OnContent>
+                <ToggleSwitch.OffContent>
+                    <TextBlock Text="No"/>
+                </ToggleSwitch.OffContent>
+            </ToggleSwitch>
+            <TextBlock Grid.Row="3"
                    Grid.Column="0"
                    Style="{StaticResource FcTextBlockStyle}"
                    Text="Hit From the front"/>
-        <ToggleSwitch Name="FrontalToggleSwitch"
+            <ToggleSwitch Name="FrontalToggleSwitch"
                      Grid.Row="3"
                      Grid.Column="1">
-            <ToggleSwitch.OnContent>
-                <TextBlock Text="Yes"/>
-            </ToggleSwitch.OnContent>
-            <ToggleSwitch.OffContent>
-                <TextBlock Text="No"/>
-            </ToggleSwitch.OffContent>
-        </ToggleSwitch>
-        <TextBlock Grid.Row="4"
+                <ToggleSwitch.OnContent>
+                    <TextBlock Text="Yes"/>
+                </ToggleSwitch.OnContent>
+                <ToggleSwitch.OffContent>
+                    <TextBlock Text="No"/>
+                </ToggleSwitch.OffContent>
+            </ToggleSwitch>
+            <TextBlock Grid.Row="4"
                    Grid.Column="0"
                    Style="{StaticResource FcTextBlockStyle}"
                    Text="Gender of Occupant"/>
-        <ComboBox Name="GenderComboBox"
+            <ComboBox Name="GenderComboBox"
                   Margin="10"
                  Grid.Row="4"
                  Grid.Column="1">
-            <ComboBoxItem Content="Male"/>
-            <ComboBoxItem Content="Female"/>
-        </ComboBox>
-        <TextBlock Grid.Row="5"
+                <ComboBoxItem Content="Male"/>
+                <ComboBoxItem Content="Female"/>
+            </ComboBox>
+            <TextBlock Grid.Row="5"
                    Grid.Column="0"
                    Style="{StaticResource FcTextBlockStyle}"
                    Text="Age of occupant"/>
-        <TextBox Name="AgeTextBox"
+            <TextBox Name="AgeTextBox"
                  Style="{StaticResource FcTextBox}"
                  Grid.Row="5"
                  Grid.Column="1"/>
-        <TextBlock Grid.Row="6"
+            <TextBlock Grid.Row="6"
                    Grid.Column="0"
                    Style="{StaticResource FcTextBlockStyle}"
                    Text="Year the vehicle was manufactured"/>
-        <TextBox Name="YearTextBox"
+            <TextBox Name="YearTextBox"
                  Style="{StaticResource FcTextBox}"
                  Grid.Row="6"
                  Grid.Column="1"/>
-        <TextBlock Grid.Row="7"
+            <TextBlock Grid.Row="7"
                    Grid.Column="0"
                    Style="{StaticResource FcTextBlockStyle}"
                    Text="Did the airbag deploy?"/>
-        <ToggleSwitch Name="AirbagDeploymentToggleSwitch"
+            <ToggleSwitch Name="AirbagDeploymentToggleSwitch"
                      Margin="10"
                      Grid.Row="7"
                      Grid.Column="1">
-            <ToggleSwitch.OnContent>
-                <TextBlock Text="Yes"/>
-            </ToggleSwitch.OnContent>
-            <ToggleSwitch.OffContent>
-                <TextBlock Text="No"/>
-            </ToggleSwitch.OffContent>
-        </ToggleSwitch>
-        <Button Name="CalculateBtn"
+                <ToggleSwitch.OnContent>
+                    <TextBlock Text="Yes"/>
+                </ToggleSwitch.OnContent>
+                <ToggleSwitch.OffContent>
+                    <TextBlock Text="No"/>
+                </ToggleSwitch.OffContent>
+            </ToggleSwitch>
+            <Button Name="CalculateBtn"
                 Margin="40"
                 Grid.Row="8"
                 Grid.Column="1"
                 Content="Compute Fatalities"
                 Click="CalculateBtn_Click"/>
-        <StackPanel Grid.Column="2"
+
+            <StackPanel Grid.Column="2"
                     Grid.Row="0"
                     Name="ResultsStackPanel"
                     Visibility="Collapsed"
                     Grid.RowSpan="8"
                     Orientation="Vertical">
-            <TextBlock HorizontalAlignment="Center"
+                <TextBlock HorizontalAlignment="Center"
                        Margin="10"
                        Text="Results"
                        FontSize="22"
                        FontWeight="SemiBold"/>
-            <TextBlock HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Margin="10"
-                       Text="yup"
-                       Name="DummyTxt"
-                       FontSize="14"/>
-            <TextBlock HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Margin="10"
-                       TextWrapping="Wrap"
-                       Text="yup2"
-                       Name="DummyTxt2"
-                       FontSize="14"/>
-        </StackPanel>
-    </Grid>
+                <GridView Name="ResultsGridView"
+                      Margin="10,0,10,0"
+                      IsItemClickEnabled="True"
+                      ItemClick="ResultsGridView_ItemClick"
+                      ItemsSource="{x:Bind _gridViewItems}">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="gridData:ResultGrigViewItem">
+                            <StackPanel Orientation="Vertical"
+                                    Margin="5">
+                                <Image Source="{x:Bind Location}"
+                                   Width="120"
+                                   Height="120"
+                                   Stretch="Uniform"/>
+                                <TextBlock Text="{x:Bind Name}"
+                                       Style="{StaticResource GridNameTextBlock}"/>
+                                <TextBlock Text="{x:Bind Description}"
+                                     Style="{StaticResource GridDescTextBlock}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+                <StackPanel Orientation="Vertical"></StackPanel>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Page>

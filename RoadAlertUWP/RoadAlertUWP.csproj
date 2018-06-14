@@ -101,6 +101,7 @@
     <Compile Include="Models\Fatalities.cs" />
     <Compile Include="Models\FatalitiesPrediction.cs" />
     <Compile Include="Models\HomeMenuItem.cs" />
+    <Compile Include="Models\ResultGrigViewItem.cs" />
     <Compile Include="Pages\Accidents.xaml.cs">
       <DependentUpon>Accidents.xaml</DependentUpon>
     </Compile>
@@ -133,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\accident.png" />
+    <Content Include="Assets\AzureMlStudio.png" />
     <Content Include="Assets\corrupt.png" />
     <Content Include="Assets\fatalities.png" />
     <Content Include="Assets\home.png" />
@@ -141,8 +143,10 @@
     <Content Include="Assets\LargeTile.scale-150.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\mlnet.png" />
     <Content Include="Assets\road.png" />
     <Content Include="Assets\RoadAlert.png" />
+    <Content Include="Assets\score.png" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-125.png" />
     <Content Include="Assets\SmallTile.scale-150.png" />

@@ -26,9 +26,26 @@ namespace RoadAlertUWP.Pages
     /// </summary>
     public sealed partial class FatalitiesCalculation : Page
     {
+        private  List<ResultGrigViewItem> _gridViewItems;
         public FatalitiesCalculation()
         {
             this.InitializeComponent();
+            _gridViewItems = new List<ResultGrigViewItem>()
+            {
+                new ResultGrigViewItem
+                {
+                    Name = "Azure Machine Learning Studio",
+                    Description = "Get results from Azure ML Studio which is  a GUI-based integrated development environment for constructing and operationalizing Machine Learning workflow on Azure, from which the model is deployed as a web service afetr the training . An internet connection is required for this.",
+                    Location = "ms-appx:///Assets/AzureMlStudio.png"
+                },
+                new ResultGrigViewItem
+                {
+                    Name = "ML.NET",
+                    Description ="Get results from ML.NET which is a free, open-source, and cross-platform machine learning framework that enables you to build custom machine learning solutions and integrate them into your .NET applications. The model runs locally no internet connection is required but Patience is.",
+                    Location = "ms-appx:///Assets/mlnet.png"
+                }
+            };
+
         }
 
         private void Speed_Click(object sender, RoutedEventArgs e)
@@ -66,7 +83,12 @@ namespace RoadAlertUWP.Pages
                 Year = "1990",
                 Frontal = 0
             };
-            DummyTxt2.Text = await  new AzureMlPrediction(f).InvokeRequestResponseService();
+           // DummyTxt2.Text = await  new AzureMlPrediction(f).InvokeRequestResponseService();
+        }
+
+        private void ResultsGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }
