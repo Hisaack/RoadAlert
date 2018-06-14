@@ -124,7 +124,7 @@
                    Style="{StaticResource FcTextBlockStyle}"
                    Text="Did the airbag deploy?"/>
             <ToggleSwitch Name="AirbagDeploymentToggleSwitch"
-                     Margin="10"
+                     Margin="10,10,10,0"
                      Grid.Row="7"
                      Grid.Column="1">
                 <ToggleSwitch.OnContent>
@@ -135,7 +135,7 @@
                 </ToggleSwitch.OffContent>
             </ToggleSwitch>
             <Button Name="CalculateBtn"
-                Margin="40"
+                Margin="8"
                 Grid.Row="8"
                 Grid.Column="1"
                 Content="Compute Fatalities"
@@ -147,9 +147,9 @@
                     Visibility="Collapsed"
                     Grid.RowSpan="8"
                     Orientation="Vertical">
-                <TextBlock HorizontalAlignment="Center"
-                       Margin="10"
-                       Text="Results"
+                <TextBlock HorizontalAlignment="Left"
+                       Margin="20"
+                       Text="Computations"
                        FontSize="22"
                        FontWeight="SemiBold"/>
                 <GridView Name="ResultsGridView"
@@ -178,7 +178,107 @@
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
-                <StackPanel Orientation="Vertical"></StackPanel>
+
+                <StackPanel Margin="5"
+                            Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical"
+                                Width="300">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Results"
+                                       HorizontalAlignment="Center"
+                                       Margin="8"
+                                       FontSize="16"
+                                       FontWeight="SemiBold"/>
+                            <TextBlock Style="{StaticResource GridDescTextBlock}"
+                                       Grid.Column="0"
+                                       Margin="10"
+                                       Grid.Row="1"
+                                       Text="Score :"/>
+                            <TextBlock Style="{StaticResource GridDescTextBlock}"
+                                       Name="ScoreTxtBlock"
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       Margin="10"/>
+                            <TextBlock Style="{StaticResource GridDescTextBlock}"
+                                       Grid.Row="2"
+                                       Grid.Column="0"
+                                       Text="Injury Severity :"/>
+                            <TextBlock Style="{StaticResource GridDescTextBlock}"
+                                       Name="InjurySeverityTxtBlock"
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       Margin="10"/>
+                            <TextBlock Style="{StaticResource GridDescTextBlock}"
+                                       Grid.Row="3"
+                                       Grid.Column="0"
+                                       Text="Injury Severity :"/>
+                            <TextBlock Style="{StaticResource GridDescTextBlock}"
+                                       Name="InjurySeverityScaleTxtBlock"
+                                       Grid.Column="1"
+                                       Grid.Row="3"
+                                       Margin="10"/>
+                            <Button Name="LearnSeverityScale"
+                                    Content="Laern about Severity Scale"
+                                    Grid.Row="4"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Center"
+                                    Click="LearnSeverityScale_Click"/>
+                            <Button Name="ComputeAgaiBtn"
+                                    Content="Compute Again"
+                                    Grid.Row="5"
+                                    Grid.Column="0"
+                                    Margin="5"
+                                    HorizontalAlignment="Center"
+                                    Click="ComputeAgaiBtn_Click"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <Button Background="Transparent"
+                                HorizontalAlignment="Center"
+                                Name="ModelScoreBtn"
+                                Click="ModelScoreBtn_Click">
+                            <StackPanel Orientation="Vertical">
+                                <Image Height="120"
+                                       Source="ms-appx:///Assets/score.png"
+                                       Width="120"
+                                       HorizontalAlignment="Center"/>
+                                <TextBlock FontSize="14"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center"
+                                           Text="Model Scores"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Background="Transparent"
+                                Height="40"
+                                Width="230"
+                                HorizontalAlignment="Center"
+                                Margin="10"
+                                Name="GitHubBtn"
+                                Click="GitHubBtn_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="40"
+                                       Source="ms-appx:///Assets/Octocat.png"
+                                       Width="40"
+                                       HorizontalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource GridDescTextBlock}"
+                                           FontWeight="Bold"
+                                           Text="Contribute on Github"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </ScrollViewer>

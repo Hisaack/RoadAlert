@@ -90,5 +90,25 @@ namespace RoadAlertUWP.Pages
         {
 
         }
+
+        private void LearnSeverityScale_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ModelScoreBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GitHubBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ComputeAgaiBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
