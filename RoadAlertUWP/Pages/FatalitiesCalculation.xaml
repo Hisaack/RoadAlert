@@ -157,6 +157,13 @@
                        Text="yup"
                        Name="DummyTxt"
                        FontSize="14"/>
+            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="10"
+                       TextWrapping="Wrap"
+                       Text="yup2"
+                       Name="DummyTxt2"
+                       FontSize="14"/>
         </StackPanel>
     </Grid>
 </Page>

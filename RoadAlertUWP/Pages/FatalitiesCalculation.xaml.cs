@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.ML;
+using RoadAlertUWP.MLStudioPrediction.Model;
+using RoadAlertUWP.MLStudioPrediction.Prediction;
 using RoadAlertUWP.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -35,7 +37,7 @@ namespace RoadAlertUWP.Pages
             SpeedValueTextBox.Text = item.Text;
         }
 
-        private  void CalculateBtn_Click(object sender, RoutedEventArgs e)
+        private async void CalculateBtn_Click(object sender, RoutedEventArgs e)
         {
             ResultsStackPanel.Visibility = Visibility.Visible;
             var fatality = new Fatalities()
@@ -49,10 +51,22 @@ namespace RoadAlertUWP.Pages
                 Year = 1990,
                 Frontal = 0
             };
-            var model = PredictionModel
-                .ReadAsync<Fatalities, FatalitiesPrediction>("Model.zip").Result;
-            var prediction = model.Predict(fatality);
-            DummyTxt.Text = prediction.InjurySeverity.ToString();
+            //var model = PredictionModel
+            //    .ReadAsync<Fatalities, FatalitiesPrediction>("Model.zip").Result;
+            //var prediction = model.Predict(fatality);
+            //DummyTxt.Text = prediction.InjurySeverity.ToString();
+            var f = new AzureMlFatality()
+            {
+                Speed = "25-39",
+                Age = 26,
+                Airbag = "none",
+                Seatbelt = "belted",
+                Deploy = 1,
+                Gender = "f",
+                Year = "1990",
+                Frontal = 0
+            };
+            DummyTxt2.Text = await  new AzureMlPrediction(f).InvokeRequestResponseService();
         }
     }
 }

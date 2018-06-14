@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RoadAlertUWP.MLStudioPrediction.Model
 {
-    public class AzureMlFatality
+    public  class AzureMlFatality
     {
         public string Speed { get; set; }
         public string Airbag { get; set; }

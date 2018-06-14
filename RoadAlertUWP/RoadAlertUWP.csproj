@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="MLStudioPrediction\Model\AzureMlFatality.cs" />
+    <Compile Include="MLStudioPrediction\Model\Class1.cs" />
     <Compile Include="MLStudioPrediction\Prediction\AzureMlPrediction.cs" />
     <Compile Include="Models\Fatalities.cs" />
     <Compile Include="Models\FatalitiesPrediction.cs" />
