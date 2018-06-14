@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RoadAlertUWP.MLStudioPrediction.Model
 {
 
-    public class Rootobject
+    public class AzureMlPredictedScore
     {
         public Results Results { get; set; }
     
