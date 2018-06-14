@@ -5,10 +5,12 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
@@ -27,6 +29,9 @@ namespace RoadAlertUWP.Pages
     public sealed partial class FatalitiesCalculation : Page
     {
         private  List<ResultGrigViewItem> _gridViewItems;
+        private AzureMlFatality _azureMlFatality;
+        private Fatalities _fatality;
+        private string _gender;
         public FatalitiesCalculation()
         {
             this.InitializeComponent();
@@ -54,41 +59,80 @@ namespace RoadAlertUWP.Pages
             SpeedValueTextBox.Text = item.Text;
         }
 
-        private async void CalculateBtn_Click(object sender, RoutedEventArgs e)
+        private  void CalculateBtn_Click(object sender, RoutedEventArgs e)
         {
+             _fatality = new Fatalities()
+            {
+                Speed = SpeedValueTextBox.Text,
+                Age = float.Parse(AgeTextBox.Text),
+                Airbag = AirbagToggleSwitch.IsOn ? "airbag" : "none",
+                SeatBelt = SeatBeltToggleSwitch.IsOn? "belted":"none",
+                Deploy = AirbagDeploymentToggleSwitch.IsOn?1:0,
+                Sex = _gender,
+                Year = float.Parse(YearTextBox.Text),
+                Frontal = FrontalToggleSwitch.IsOn?1:0
+            };
+
+             _azureMlFatality = new AzureMlFatality()
+            {
+                Speed = SpeedValueTextBox.Text,
+                Age = int.Parse(AgeTextBox.Text),
+                Airbag = AirbagToggleSwitch.IsOn ? "airbag" : "none",
+                Seatbelt = SeatBeltToggleSwitch.IsOn ? "belted" : "none",
+                Deploy = AirbagDeploymentToggleSwitch.IsOn ? 1 : 0,
+                Gender = _gender,
+                Year = YearTextBox.Text,
+                Frontal = FrontalToggleSwitch.IsOn ? 1 : 0
+            };
+
             ResultsStackPanel.Visibility = Visibility.Visible;
-            var fatality = new Fatalities()
-            {
-                Speed = "25-39",
-                Age = 26,
-                Airbag = "none",
-                SeatBelt = "belted",
-                Deploy = 1,
-                Sex = "f",
-                Year = 1990,
-                Frontal = 0
-            };
-            //var model = PredictionModel
-            //    .ReadAsync<Fatalities, FatalitiesPrediction>("Model.zip").Result;
-            //var prediction = model.Predict(fatality);
-            //DummyTxt.Text = prediction.InjurySeverity.ToString();
-            var f = new AzureMlFatality()
-            {
-                Speed = "25-39",
-                Age = 26,
-                Airbag = "none",
-                Seatbelt = "belted",
-                Deploy = 1,
-                Gender = "f",
-                Year = "1990",
-                Frontal = 0
-            };
-           // DummyTxt2.Text = await  new AzureMlPrediction(f).InvokeRequestResponseService();
+            CalculateBtn.Visibility = Visibility.Collapsed;
+            SpeedValueTextBox.Text = "";
+            AgeTextBox.Text = "";
+            AirbagToggleSwitch.IsOn = false;
+            SeatBeltToggleSwitch.IsOn = false;
+            AirbagDeploymentToggleSwitch.IsOn = false;
+            GenderComboBox.SelectedItem = null;
+            YearTextBox.Text = "";
+            FrontalToggleSwitch.IsOn = false;
         }
 
         private void ResultsGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            var gridItemClicked = (ResultGrigViewItem)e.ClickedItem;
+            switch (gridItemClicked.Name)
+            {
+                case "Azure Machine Learning Studio":
+                    var model = PredictionModel
+                        .ReadAsync<Fatalities, FatalitiesPrediction>("Model.zip").Result;
+                    var prediction = model.Predict(_fatality);
+                    ScoreTxtBlock.Text = prediction.InjurySeverity.ToString("##.000");
+                    var injSev = prediction.InjurySeverity.ToString("N");
+                    switch (injSev)
+                    {
+                        case "0":
+                            InjurySeverityScaleTxtBlock.Text = "None";
+                            break;
+                        case "1":
+                            InjurySeverityScaleTxtBlock.Text = "Possible injury";
+                            break;
+                        case "2":
+                            InjurySeverityScaleTxtBlock.Text = "No incapacity!";
+                            break;
+                        case "3":
+                            InjurySeverityScaleTxtBlock.Text = "Incapacity!";
+                            break;
+                        default:
+                            InjurySeverityScaleTxtBlock.Text="Fatal!";
+                            InjurySeverityScaleTxtBlock.Foreground = new SolidColorBrush(Colors.Red);   
+                            break;
+                    }
 
+                    InjurySeverityTxtBlock.Text = injSev;
+                    break;
+                case "ML.NET":
+                    break;
+            }
         }
 
         private void LearnSeverityScale_Click(object sender, RoutedEventArgs e)
@@ -109,6 +153,13 @@ namespace RoadAlertUWP.Pages
         private void ComputeAgaiBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void GenderComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = ((ComboBox) sender).SelectedItem;
+            if (selectedItem != null)
+                _gender = selectedItem.ToString();
         }
     }
 }

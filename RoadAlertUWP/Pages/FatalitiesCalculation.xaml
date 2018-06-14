@@ -98,6 +98,7 @@
                    Text="Gender of Occupant"/>
             <ComboBox Name="GenderComboBox"
                   Margin="10"
+                 SelectionChanged="GenderComboBox_SelectionChanged"
                  Grid.Row="4"
                  Grid.Column="1">
                 <ComboBoxItem Content="Male"/>
@@ -223,7 +224,7 @@
                             <TextBlock Style="{StaticResource GridDescTextBlock}"
                                        Grid.Row="3"
                                        Grid.Column="0"
-                                       Text="Injury Severity :"/>
+                                       Text="Injury Severity Scale:"/>
                             <TextBlock Style="{StaticResource GridDescTextBlock}"
                                        Name="InjurySeverityScaleTxtBlock"
                                        Grid.Column="1"
