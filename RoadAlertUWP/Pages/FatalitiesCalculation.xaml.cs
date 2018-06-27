@@ -108,7 +108,7 @@ namespace RoadAlertUWP.Pages
                     var model = PredictionModel
                         .ReadAsync<Fatalities, FatalitiesPrediction>("Model.zip").Result;
                     var prediction = model.Predict(_fatality);
-                    ScoreTxtBlock.Text = prediction.InjurySeverity.ToString("##.000");
+                    ScoreTxtBlock.Text = prediction.InjurySeverity.ToString("N0");
                     var injSev = prediction.InjurySeverity.ToString("N");
                     LoadatOTextBlock(injSev);
                     break;

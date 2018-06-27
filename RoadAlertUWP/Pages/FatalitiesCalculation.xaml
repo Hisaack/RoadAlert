@@ -145,7 +145,7 @@
             <StackPanel Grid.Column="2"
                     Grid.Row="0"
                     Name="ResultsStackPanel"
-                    Visibility="Visible"
+                    Visibility="Collapsed"
                     Grid.RowSpan="8"
                     Orientation="Vertical">
                 <TextBlock HorizontalAlignment="Left"
@@ -220,7 +220,7 @@
                                        Name="InjurySeverityTxtBlock"
                                        Grid.Column="1"
                                        Grid.Row="2"
-                                       Margin="10"/>
+                                       Margin="5"/>
                             <TextBlock Style="{StaticResource GridResTextBlock}"
                                        Grid.Row="3"
                                        Grid.Column="0"
@@ -230,7 +230,7 @@
                                        Grid.Column="1"
                                        Text="bb"
                                        Grid.Row="3"
-                                       Margin="10"/>
+                                       Margin="5"/>
                             <Button Name="LearnSeverityScale"
                                     Content="Laern about Severity Scale"
                                     Grid.Row="4"
