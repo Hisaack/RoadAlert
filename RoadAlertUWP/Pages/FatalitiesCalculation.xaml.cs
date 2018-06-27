@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -15,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.ML;
+using Plugin.Connectivity;
 using RoadAlertUWP.MLStudioPrediction.Model;
 using RoadAlertUWP.MLStudioPrediction.Prediction;
 using RoadAlertUWP.Models;
@@ -97,42 +99,60 @@ namespace RoadAlertUWP.Pages
             FrontalToggleSwitch.IsOn = false;
         }
 
-        private void ResultsGridView_ItemClick(object sender, ItemClickEventArgs e)
+        private async void ResultsGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var gridItemClicked = (ResultGrigViewItem)e.ClickedItem;
             switch (gridItemClicked.Name)
             {
-                case "Azure Machine Learning Studio":
+                case "ML.NET":
                     var model = PredictionModel
                         .ReadAsync<Fatalities, FatalitiesPrediction>("Model.zip").Result;
                     var prediction = model.Predict(_fatality);
                     ScoreTxtBlock.Text = prediction.InjurySeverity.ToString("##.000");
                     var injSev = prediction.InjurySeverity.ToString("N");
-                    switch (injSev)
-                    {
-                        case "0":
-                            InjurySeverityScaleTxtBlock.Text = "None";
-                            break;
-                        case "1":
-                            InjurySeverityScaleTxtBlock.Text = "Possible injury";
-                            break;
-                        case "2":
-                            InjurySeverityScaleTxtBlock.Text = "No incapacity!";
-                            break;
-                        case "3":
-                            InjurySeverityScaleTxtBlock.Text = "Incapacity!";
-                            break;
-                        default:
-                            InjurySeverityScaleTxtBlock.Text="Fatal!";
-                            InjurySeverityScaleTxtBlock.Foreground = new SolidColorBrush(Colors.Red);   
-                            break;
-                    }
-
-                    InjurySeverityTxtBlock.Text = injSev;
+                    LoadatOTextBlock(injSev);
                     break;
-                case "ML.NET":
+                case "Azure Machine Learning Studio":
+                    var isConnected = CrossConnectivity.Current.IsConnected;
+                    if (isConnected)
+                    {
+                        var result = await new AzureMlPrediction(_azureMlFatality).InvokeRequestResponseService();
+                        LoadatOTextBlock(result);
+                    }
+                    else
+                    {
+                        LoadatOTextBlock("Network Error");
+                    }
                     break;
             }
+        }
+
+        private void LoadatOTextBlock(string injSev)
+        {
+            switch (injSev)
+            {
+                case "0":
+                    InjurySeverityScaleTxtBlock.Text = "None";
+                    break;
+                case "1":
+                    InjurySeverityScaleTxtBlock.Text = "Possible injury";
+                    break;
+                case "2":
+                    InjurySeverityScaleTxtBlock.Text = "No incapacity!";
+                    break;
+                case "3":
+                    InjurySeverityScaleTxtBlock.Text = "Incapacity!";
+                    break;
+                case "Network Error":
+                    InjurySeverityScaleTxtBlock.Text = "Computation Error!";
+                    break;
+                default:
+                    InjurySeverityScaleTxtBlock.Text = "Fatal!";
+                    InjurySeverityScaleTxtBlock.Foreground = new SolidColorBrush(Colors.Red);
+                    break;
+            }
+
+            InjurySeverityTxtBlock.Text = injSev;
         }
 
         private void LearnSeverityScale_Click(object sender, RoutedEventArgs e)
